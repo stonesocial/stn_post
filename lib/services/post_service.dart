@@ -43,7 +43,9 @@ class PostService extends ClientEitherResponseHandler {
 
     if (result.$1 != null) return (result.$1, null);
 
-    return (null, Post.fromJson(result.$2!.data['data']));
+    final data = result.$2?.data['data'];
+
+    return (null, data != null ? Post.fromJson(data) : null);
   }
 
   Future<(Failure?, CompleteResponse<Post>?)> getAll({
