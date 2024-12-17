@@ -54,7 +54,10 @@ class PostService extends ClientEitherResponseHandler {
   }) async {
     final result = await handleClientEitherResponse(
       _httpClient.GET(
-          'posts/all${user != null ? '/$user' : Strings.empty}${filters.lazyGet()}'),
+        user != null
+          ? 'posts/all/$user${filters.lazyGet()}'
+          : 'posts${filters.lazyGet()}',
+      ),
     );
 
     if (result.$1 != null) return (result.$1, null);
