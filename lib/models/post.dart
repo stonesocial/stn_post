@@ -38,9 +38,9 @@ class Post with _$Post {
 
   bool get isVideo => content.mediaType == MediaType.video.name;
 
-  bool get isSaved => interaction.savedBy.contains(currentUser!.pubKey);
+  bool get isSaved => interaction.savedBy.contains(currentUser?.pubKey);
 
-  bool get isIgnored => interaction.ignoredBy.contains(currentUser!.pubKey);
+  bool get isIgnored => interaction.ignoredBy.contains(currentUser?.pubKey);
 
   bool get isPrivate => availability == PostAvailability.private.name;
 
