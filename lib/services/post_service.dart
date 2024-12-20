@@ -299,19 +299,23 @@ class PostService extends ClientEitherResponseHandler {
   }
 
   Future<List<Post>> _mapPosts(dynamic data) async {
-    return await Future.wait(
-      List.from(data).map((e) => Post.fromJson(e)).map((post) async {
-        if (post.isVideo) {
-          return post.copyWith(
-            content: post.content.copyWith(
-              mediaFilePath: (await DefaultCacheManager().getSingleFile(post.content.media)).path,
-            ),
-          );
-        } else {
-          return post;
-        }
-      }),
-    );
+    if (data != null) {
+      return await Future.wait(
+        List.from(data).map((e) => Post.fromJson(e)).map((post) async {
+          if (post.isVideo) {
+            return post.copyWith(
+              content: post.content.copyWith(
+                mediaFilePath: (await DefaultCacheManager().getSingleFile(post.content.media)).path,
+              ),
+            );
+          } else {
+            return post;
+          }
+        }),
+      );
+    }
+
+    return Future.value([]);
   }
 
   Future<(Failure?, bool)> delete(String id) async {
