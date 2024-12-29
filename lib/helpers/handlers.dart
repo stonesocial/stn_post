@@ -9,7 +9,6 @@ extension ListHandler on List<Post> {
 
     return this;
   }
-  void get sortAsc => sort((a, b) => b.content.createdAt.compareTo(a.content.createdAt));
   List<Post> keepCurrentAlive(List<Post> currentState) => where((e) => !currentState.map((e) => e.id).contains(e.id)).toList();
 }
 

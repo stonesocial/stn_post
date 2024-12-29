@@ -343,7 +343,9 @@ class PostService extends ClientEitherResponseHandler {
   }
 
   Future<(Failure?, bool)> cachePosts(
-      String key, CompleteResponse<Post> value) async {
+    String key,
+    CompleteResponse<Post> value,
+  ) async {
     final result = await cacheStorage.setString(
       key,
       jsonEncode(value.toMap(value.data.map((e) => e.toJson()).toList())),
@@ -376,8 +378,7 @@ class PostService extends ClientEitherResponseHandler {
     }
 
     final decodeResult = jsonDecode(result);
-    final data =
-        List<Post>.from(decodeResult['data'].map((e) => Post.fromJson(e)));
+    final data = List<Post>.from(decodeResult['data'].map((e) => Post.fromJson(e)));
 
     return (null, CompleteResponse<Post>.fromMap(decodeResult, data));
   }
