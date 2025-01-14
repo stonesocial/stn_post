@@ -21,7 +21,7 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Post {
   String get id => throw _privateConstructorUsedError;
-  PostAuthor get author => throw _privateConstructorUsedError;
+  User get author => throw _privateConstructorUsedError;
   String get availability => throw _privateConstructorUsedError;
   PostContent get content => throw _privateConstructorUsedError;
   PostInteraction get interaction => throw _privateConstructorUsedError;
@@ -38,12 +38,12 @@ abstract class $PostCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      PostAuthor author,
+      User author,
       String availability,
       PostContent content,
       PostInteraction interaction});
 
-  $PostAuthorCopyWith<$Res> get author;
+  $UserCopyWith<$Res> get author;
   $PostContentCopyWith<$Res> get content;
   $PostInteractionCopyWith<$Res> get interaction;
 }
@@ -75,7 +75,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as PostAuthor,
+              as User,
       availability: null == availability
           ? _value.availability
           : availability // ignore: cast_nullable_to_non_nullable
@@ -93,8 +93,8 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
 
   @override
   @pragma('vm:prefer-inline')
-  $PostAuthorCopyWith<$Res> get author {
-    return $PostAuthorCopyWith<$Res>(_value.author, (value) {
+  $UserCopyWith<$Res> get author {
+    return $UserCopyWith<$Res>(_value.author, (value) {
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
@@ -125,13 +125,13 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      PostAuthor author,
+      User author,
       String availability,
       PostContent content,
       PostInteraction interaction});
 
   @override
-  $PostAuthorCopyWith<$Res> get author;
+  $UserCopyWith<$Res> get author;
   @override
   $PostContentCopyWith<$Res> get content;
   @override
@@ -162,7 +162,7 @@ class __$$PostImplCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as PostAuthor,
+              as User,
       availability: null == availability
           ? _value.availability
           : availability // ignore: cast_nullable_to_non_nullable
@@ -196,7 +196,7 @@ class _$PostImpl extends _Post {
   @override
   final String id;
   @override
-  final PostAuthor author;
+  final User author;
   @override
   final String availability;
   @override
@@ -245,7 +245,7 @@ class _$PostImpl extends _Post {
 abstract class _Post extends Post {
   factory _Post(
       {required final String id,
-      required final PostAuthor author,
+      required final User author,
       required final String availability,
       required final PostContent content,
       required final PostInteraction interaction}) = _$PostImpl;
@@ -256,7 +256,7 @@ abstract class _Post extends Post {
   @override
   String get id;
   @override
-  PostAuthor get author;
+  User get author;
   @override
   String get availability;
   @override
@@ -266,205 +266,6 @@ abstract class _Post extends Post {
   @override
   @JsonKey(ignore: true)
   _$$PostImplCopyWith<_$PostImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-PostAuthor _$PostAuthorFromJson(Map<String, dynamic> json) {
-  return _PostAuthor.fromJson(json);
-}
-
-/// @nodoc
-mixin _$PostAuthor {
-  String get pubKey => throw _privateConstructorUsedError;
-  String get username => throw _privateConstructorUsedError;
-  String get avatar => throw _privateConstructorUsedError;
-  String get accountType => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PostAuthorCopyWith<PostAuthor> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PostAuthorCopyWith<$Res> {
-  factory $PostAuthorCopyWith(
-          PostAuthor value, $Res Function(PostAuthor) then) =
-      _$PostAuthorCopyWithImpl<$Res, PostAuthor>;
-  @useResult
-  $Res call(
-      {String pubKey, String username, String avatar, String accountType});
-}
-
-/// @nodoc
-class _$PostAuthorCopyWithImpl<$Res, $Val extends PostAuthor>
-    implements $PostAuthorCopyWith<$Res> {
-  _$PostAuthorCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pubKey = null,
-    Object? username = null,
-    Object? avatar = null,
-    Object? accountType = null,
-  }) {
-    return _then(_value.copyWith(
-      pubKey: null == pubKey
-          ? _value.pubKey
-          : pubKey // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      avatar: null == avatar
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as String,
-      accountType: null == accountType
-          ? _value.accountType
-          : accountType // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$PostAuthorImplCopyWith<$Res>
-    implements $PostAuthorCopyWith<$Res> {
-  factory _$$PostAuthorImplCopyWith(
-          _$PostAuthorImpl value, $Res Function(_$PostAuthorImpl) then) =
-      __$$PostAuthorImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String pubKey, String username, String avatar, String accountType});
-}
-
-/// @nodoc
-class __$$PostAuthorImplCopyWithImpl<$Res>
-    extends _$PostAuthorCopyWithImpl<$Res, _$PostAuthorImpl>
-    implements _$$PostAuthorImplCopyWith<$Res> {
-  __$$PostAuthorImplCopyWithImpl(
-      _$PostAuthorImpl _value, $Res Function(_$PostAuthorImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? pubKey = null,
-    Object? username = null,
-    Object? avatar = null,
-    Object? accountType = null,
-  }) {
-    return _then(_$PostAuthorImpl(
-      pubKey: null == pubKey
-          ? _value.pubKey
-          : pubKey // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      avatar: null == avatar
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as String,
-      accountType: null == accountType
-          ? _value.accountType
-          : accountType // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$PostAuthorImpl extends _PostAuthor {
-  const _$PostAuthorImpl(
-      {required this.pubKey,
-      required this.username,
-      required this.avatar,
-      required this.accountType})
-      : super._();
-
-  factory _$PostAuthorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PostAuthorImplFromJson(json);
-
-  @override
-  final String pubKey;
-  @override
-  final String username;
-  @override
-  final String avatar;
-  @override
-  final String accountType;
-
-  @override
-  String toString() {
-    return 'PostAuthor(pubKey: $pubKey, username: $username, avatar: $avatar, accountType: $accountType)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PostAuthorImpl &&
-            (identical(other.pubKey, pubKey) || other.pubKey == pubKey) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.avatar, avatar) || other.avatar == avatar) &&
-            (identical(other.accountType, accountType) ||
-                other.accountType == accountType));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, pubKey, username, avatar, accountType);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PostAuthorImplCopyWith<_$PostAuthorImpl> get copyWith =>
-      __$$PostAuthorImplCopyWithImpl<_$PostAuthorImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PostAuthorImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _PostAuthor extends PostAuthor {
-  const factory _PostAuthor(
-      {required final String pubKey,
-      required final String username,
-      required final String avatar,
-      required final String accountType}) = _$PostAuthorImpl;
-  const _PostAuthor._() : super._();
-
-  factory _PostAuthor.fromJson(Map<String, dynamic> json) =
-      _$PostAuthorImpl.fromJson;
-
-  @override
-  String get pubKey;
-  @override
-  String get username;
-  @override
-  String get avatar;
-  @override
-  String get accountType;
-  @override
-  @JsonKey(ignore: true)
-  _$$PostAuthorImplCopyWith<_$PostAuthorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -792,6 +593,7 @@ mixin _$PostInteraction {
   List<String> get repostedBy => throw _privateConstructorUsedError;
   List<String> get reposts => throw _privateConstructorUsedError;
   String get repostRef => throw _privateConstructorUsedError;
+  Post? get repostData => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get viewCount => throw _privateConstructorUsedError;
   List<String> get seenBy => throw _privateConstructorUsedError;
@@ -819,9 +621,12 @@ abstract class $PostInteractionCopyWith<$Res> {
       List<String> repostedBy,
       List<String> reposts,
       String repostRef,
+      Post? repostData,
       int repostCount,
       int viewCount,
       List<String> seenBy});
+
+  $PostCopyWith<$Res>? get repostData;
 }
 
 /// @nodoc
@@ -847,6 +652,7 @@ class _$PostInteractionCopyWithImpl<$Res, $Val extends PostInteraction>
     Object? repostedBy = null,
     Object? reposts = null,
     Object? repostRef = null,
+    Object? repostData = freezed,
     Object? repostCount = null,
     Object? viewCount = null,
     Object? seenBy = null,
@@ -892,6 +698,10 @@ class _$PostInteractionCopyWithImpl<$Res, $Val extends PostInteraction>
           ? _value.repostRef
           : repostRef // ignore: cast_nullable_to_non_nullable
               as String,
+      repostData: freezed == repostData
+          ? _value.repostData
+          : repostData // ignore: cast_nullable_to_non_nullable
+              as Post?,
       repostCount: null == repostCount
           ? _value.repostCount
           : repostCount // ignore: cast_nullable_to_non_nullable
@@ -905,6 +715,18 @@ class _$PostInteractionCopyWithImpl<$Res, $Val extends PostInteraction>
           : seenBy // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PostCopyWith<$Res>? get repostData {
+    if (_value.repostData == null) {
+      return null;
+    }
+
+    return $PostCopyWith<$Res>(_value.repostData!, (value) {
+      return _then(_value.copyWith(repostData: value) as $Val);
+    });
   }
 }
 
@@ -927,9 +749,13 @@ abstract class _$$PostInteractionImplCopyWith<$Res>
       List<String> repostedBy,
       List<String> reposts,
       String repostRef,
+      Post? repostData,
       int repostCount,
       int viewCount,
       List<String> seenBy});
+
+  @override
+  $PostCopyWith<$Res>? get repostData;
 }
 
 /// @nodoc
@@ -953,6 +779,7 @@ class __$$PostInteractionImplCopyWithImpl<$Res>
     Object? repostedBy = null,
     Object? reposts = null,
     Object? repostRef = null,
+    Object? repostData = freezed,
     Object? repostCount = null,
     Object? viewCount = null,
     Object? seenBy = null,
@@ -998,6 +825,10 @@ class __$$PostInteractionImplCopyWithImpl<$Res>
           ? _value.repostRef
           : repostRef // ignore: cast_nullable_to_non_nullable
               as String,
+      repostData: freezed == repostData
+          ? _value.repostData
+          : repostData // ignore: cast_nullable_to_non_nullable
+              as Post?,
       repostCount: null == repostCount
           ? _value.repostCount
           : repostCount // ignore: cast_nullable_to_non_nullable
@@ -1028,6 +859,7 @@ class _$PostInteractionImpl extends _PostInteraction {
       required final List<String> repostedBy,
       required final List<String> reposts,
       required this.repostRef,
+      this.repostData,
       required this.repostCount,
       required this.viewCount,
       required final List<String> seenBy})
@@ -1100,6 +932,8 @@ class _$PostInteractionImpl extends _PostInteraction {
   @override
   final String repostRef;
   @override
+  final Post? repostData;
+  @override
   final int repostCount;
   @override
   final int viewCount;
@@ -1113,7 +947,7 @@ class _$PostInteractionImpl extends _PostInteraction {
 
   @override
   String toString() {
-    return 'PostInteraction(likedBy: $likedBy, commentedBy: $commentedBy, ignoredBy: $ignoredBy, savedBy: $savedBy, commentRef: $commentRef, commentCount: $commentCount, likeCount: $likeCount, repostedBy: $repostedBy, reposts: $reposts, repostRef: $repostRef, repostCount: $repostCount, viewCount: $viewCount, seenBy: $seenBy)';
+    return 'PostInteraction(likedBy: $likedBy, commentedBy: $commentedBy, ignoredBy: $ignoredBy, savedBy: $savedBy, commentRef: $commentRef, commentCount: $commentCount, likeCount: $likeCount, repostedBy: $repostedBy, reposts: $reposts, repostRef: $repostRef, repostData: $repostData, repostCount: $repostCount, viewCount: $viewCount, seenBy: $seenBy)';
   }
 
   @override
@@ -1138,6 +972,8 @@ class _$PostInteractionImpl extends _PostInteraction {
             const DeepCollectionEquality().equals(other._reposts, _reposts) &&
             (identical(other.repostRef, repostRef) ||
                 other.repostRef == repostRef) &&
+            (identical(other.repostData, repostData) ||
+                other.repostData == repostData) &&
             (identical(other.repostCount, repostCount) ||
                 other.repostCount == repostCount) &&
             (identical(other.viewCount, viewCount) ||
@@ -1159,6 +995,7 @@ class _$PostInteractionImpl extends _PostInteraction {
       const DeepCollectionEquality().hash(_repostedBy),
       const DeepCollectionEquality().hash(_reposts),
       repostRef,
+      repostData,
       repostCount,
       viewCount,
       const DeepCollectionEquality().hash(_seenBy));
@@ -1190,6 +1027,7 @@ abstract class _PostInteraction extends PostInteraction {
       required final List<String> repostedBy,
       required final List<String> reposts,
       required final String repostRef,
+      final Post? repostData,
       required final int repostCount,
       required final int viewCount,
       required final List<String> seenBy}) = _$PostInteractionImpl;
@@ -1218,6 +1056,8 @@ abstract class _PostInteraction extends PostInteraction {
   List<String> get reposts;
   @override
   String get repostRef;
+  @override
+  Post? get repostData;
   @override
   int get repostCount;
   @override

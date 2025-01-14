@@ -8,7 +8,7 @@ part of 'post.dart';
 
 _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) => _$PostImpl(
       id: json['id'] as String,
-      author: PostAuthor.fromJson(json['author'] as Map<String, dynamic>),
+      author: User.fromJson(json['author'] as Map<String, dynamic>),
       availability: json['availability'] as String,
       content: PostContent.fromJson(json['content'] as Map<String, dynamic>),
       interaction:
@@ -22,22 +22,6 @@ Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
       'availability': instance.availability,
       'content': instance.content,
       'interaction': instance.interaction,
-    };
-
-_$PostAuthorImpl _$$PostAuthorImplFromJson(Map<String, dynamic> json) =>
-    _$PostAuthorImpl(
-      pubKey: json['pubKey'] as String,
-      username: json['username'] as String,
-      avatar: json['avatar'] as String,
-      accountType: json['accountType'] as String,
-    );
-
-Map<String, dynamic> _$$PostAuthorImplToJson(_$PostAuthorImpl instance) =>
-    <String, dynamic>{
-      'pubKey': instance.pubKey,
-      'username': instance.username,
-      'avatar': instance.avatar,
-      'accountType': instance.accountType,
     };
 
 _$PostContentImpl _$$PostContentImplFromJson(Map<String, dynamic> json) =>
@@ -87,6 +71,9 @@ _$PostInteractionImpl _$$PostInteractionImplFromJson(
       reposts:
           (json['reposts'] as List<dynamic>).map((e) => e as String).toList(),
       repostRef: json['repostRef'] as String,
+      repostData: json['repostData'] == null
+          ? null
+          : Post.fromJson(json['repostData'] as Map<String, dynamic>),
       repostCount: (json['repostCount'] as num).toInt(),
       viewCount: (json['viewCount'] as num).toInt(),
       seenBy:
@@ -106,6 +93,7 @@ Map<String, dynamic> _$$PostInteractionImplToJson(
       'repostedBy': instance.repostedBy,
       'reposts': instance.reposts,
       'repostRef': instance.repostRef,
+      'repostData': instance.repostData,
       'repostCount': instance.repostCount,
       'viewCount': instance.viewCount,
       'seenBy': instance.seenBy,

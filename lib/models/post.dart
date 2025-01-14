@@ -1,8 +1,6 @@
 import 'package:dependencies/dependencies.dart';
-import '../stn_post.dart';
+import 'package:stn_post/models/enums.dart';
 import 'package:stn_user/stn_user.dart';
-
-import 'enums.dart';
 
 part 'post.freezed.dart';
 part 'post.g.dart';
@@ -11,7 +9,7 @@ part 'post.g.dart';
 class Post with _$Post {
   factory Post({
     required String id,
-    required PostAuthor author,
+    required User author,
     required String availability,
     required PostContent content,
     required PostInteraction interaction,
@@ -20,7 +18,7 @@ class Post with _$Post {
   const Post._();
 
   factory Post.create({
-    required PostAuthor author,
+    required User author,
     required String availability,
     required PostContent content,
     required PostInteraction interaction,
@@ -44,7 +42,9 @@ class Post with _$Post {
 
   bool get isPrivate => availability == PostAvailability.private.name;
 
-  bool get isDirectRepost => interaction.repostRef.isNotEmpty && content.text.isEmpty;
+  bool get isDirectRepost => interaction.repostRef.isNotEmpty && content.text.isEmpty && content.media.isEmpty;
+
+  bool get isRepost => interaction.repostRef.isNotEmpty && (content.text.isNotEmpty || content.media.isNotEmpty);
 
   Post setLike(User user) {
     return copyWith(interaction: interaction.setLike(user));
@@ -91,34 +91,6 @@ class Post with _$Post {
   }
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
-}
-
-@freezed
-class PostAuthor with _$PostAuthor {
-  const factory PostAuthor({
-    required String pubKey,
-    required String username,
-    required String avatar,
-    required String accountType,
-  }) = _PostAuthor;
-  
-  const PostAuthor._();
-
-  factory PostAuthor.create({
-    required String pubKey,
-    required String username,
-    required String avatar,
-    required String accountType,
-  }) {
-    return PostAuthor(
-      pubKey: pubKey,
-      username: username,
-      avatar: avatar,
-      accountType: accountType,
-    );
-  }
-  
-  factory PostAuthor.fromJson(Map<String, dynamic> json) => _$PostAuthorFromJson(json);
 }
 
 @freezed
@@ -175,6 +147,7 @@ class PostInteraction with _$PostInteraction {
     required List<String> repostedBy,
     required List<String> reposts,
     required String repostRef,
+    Post? repostData,
     required int repostCount,
     required int viewCount,
     required List<String> seenBy,

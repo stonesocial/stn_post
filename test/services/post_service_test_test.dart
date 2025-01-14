@@ -5,8 +5,9 @@ import 'package:mockito/mockito.dart';
 import 'package:core/core.dart';
 import 'package:dependencies/dependencies.dart' hide test;
 import 'package:stn_post/stn_post.dart';
+import 'package:stn_user/models/user.dart';
 
-final testPost = Post(id: '1', interaction: PostInteraction.create(), availability: PostAvailability.public.name, author: PostAuthor.create(pubKey: 'author_pub_key', username: 'username', avatar: 'avatar', accountType: 'user'), content: PostContent.create(media: Strings.empty, image: Strings.empty, text: 'hi', mediaType: null, type: null));
+final testPost = Post(id: '1', interaction: PostInteraction.create(), availability: PostAvailability.public.name, author: User.create(pubKey: 'pubKey', username: 'username', bio: 'bio', info: UserInfo.init(accountType: 'user'), bcInfo: BlockchainInfo.create(bcName: 'solana'), interaction: UserInteraction.create(), deviceInfo: DeviceInfo.create('')), content: PostContent.create(media: Strings.empty, image: Strings.empty, text: 'hi', mediaType: null, type: null));
 
 class MockHttpClient extends Mock implements BasisHttpClient {}
 class MockCacheStorage extends Mock implements ICacheStorage {}

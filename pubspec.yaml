@@ -1,12 +1,12 @@
 name: stn_post
 description: "A new Flutter package project."
 version: 0.0.1
-homepage:
 publish_to: none
+homepage:
 
 environment:
-  sdk: ^3.5.3
-  flutter: ">=1.17.0"
+  sdk: '>=3.6.0 <4.0.0'
+  flutter: ">=3.24.3"
 
 dependencies:
   flutter:
@@ -23,9 +23,17 @@ dependencies:
   flutter_cache_manager: ^3.4.1
 
 dev_dependencies:
-  mockito: ^5.4.4
   flutter_test:
     sdk: flutter
+  mockito: ^5.4.4
   flutter_lints: ^4.0.0
+  borsh_annotation: ^0.3.1+5
+  build_runner:
+  freezed: ^2.4.6
+  json_serializable: ^6.7.1
+  injectable_generator: ^2.4.1
+#  metrics_for_dart_code:
+#    git:
+#      url: "https://github.com/ladans-io/metrics_for_dart_code"
 
 flutter:
