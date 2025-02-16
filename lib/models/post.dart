@@ -117,7 +117,7 @@ class PostContent with _$PostContent {
     required String? type,
     String? metadata,
   }) {
-    final now = DateTime.now().toIso8601String();
+    final now = DateTime.now().toUtc().toIso8601String();
 
     return PostContent(
       media: media ?? Strings.empty,
